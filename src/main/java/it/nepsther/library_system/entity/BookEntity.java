@@ -17,15 +17,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "bookId")
+@EqualsAndHashCode(of = "id")
 @Table(name = "tb_book", uniqueConstraints = {
         @UniqueConstraint(name = "UK_tb_book_isbn", columnNames = "isbn")
 })
 public class BookEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bookId;
+    private Long id;
     private String title;
+    private String description;
     private String author;
     private String isbn;
     private Integer availableCopies;

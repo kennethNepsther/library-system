@@ -1,0 +1,25 @@
+#spring.application.name=library-system
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:librarydb # For an in-memory database named 'librarydb'
+    # url: jdbc:h2:file:./data/mydb # For a file-based database in a 'data' directory
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: #password # Or leave blank for no password
+  jpa:
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update # Or 'create', 'create-drop', 'none'
+  h2:
+    console:
+      enabled: true # Enable the H2 console
+      path: /h2-console # Path to access the H2 console
+      settings:
+        trace: false
+        web-allow-others: false # Set to true to allow remote connections (caution advised)
